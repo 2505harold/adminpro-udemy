@@ -17,6 +17,7 @@ import { Graficas1Component } from "./graficas1/graficas1.component";
 //temporal
 import { IncrementadorComponent } from "../components/incrementador/incrementador.component";
 import { GraficarDonutsComponent } from "../components/graficar-donuts/graficar-donuts.component";
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GraficarDonutsComponent } from "../components/graficar-donuts/graficar-
     ProgressComponent,
     Graficas1Component,
     IncrementadorComponent,
-    GraficarDonutsComponent
+    GraficarDonutsComponent,
+    AccountSettingsComponent
   ],
   exports: [DashboardComponent, ProgressComponent, Graficas1Component],
   imports: [SharedModule, PAGES_ROUTES, FormsModule, ChartsModule]
