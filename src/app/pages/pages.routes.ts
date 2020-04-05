@@ -6,45 +6,47 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AccountSettingsComponent } from "./account-settings/account-settings.component";
 import { PromesasComponent } from "./promesas/promesas.component";
 import { RxjsComponent } from "./rxjs/rxjs.component";
+import { LoginGuardGuard } from "../services/service.index";
 
 const pagesRoutes: Routes = [
   {
     path: "",
     component: PagesComponent,
+    canActivate: [LoginGuardGuard],
     children: [
       {
         path: "dashboard",
         component: DashboardComponent,
-        data: { titulo: "Dashboard" }
+        data: { titulo: "Dashboard" },
       },
       {
         path: "progress",
         component: ProgressComponent,
-        data: { titulo: "Progress" }
+        data: { titulo: "Progress" },
       },
       {
         path: "graficas1",
         component: Graficas1Component,
-        data: { titulo: "Graficas" }
+        data: { titulo: "Graficas" },
       },
       {
         path: "promesas",
         component: PromesasComponent,
-        data: { titulo: "Promesas" }
+        data: { titulo: "Promesas" },
       },
       {
         path: "observables",
         component: RxjsComponent,
-        data: { titulo: "Observables" }
+        data: { titulo: "Observables" },
       },
       {
         path: "account-settings",
         component: AccountSettingsComponent,
-        data: { titulo: "Ajustes del Tema" }
+        data: { titulo: "Ajustes del Tema" },
       },
-      { path: "", redirectTo: "/dashboard", pathMatch: "full" }
-    ]
-  }
+      { path: "", redirectTo: "/dashboard", pathMatch: "full" },
+    ],
+  },
 ];
 
 export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);

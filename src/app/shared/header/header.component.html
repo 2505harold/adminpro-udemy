@@ -29,7 +29,7 @@
           <img
             src="../assets/images/logo-text.png"
             alt="homepage"
-            class="dark-logo"/>
+            class="dark-logo" />
           <!-- Light Logo text -->
           <img
             src="../assets/images/logo-light-text.png"
@@ -360,7 +360,7 @@
                   </div>
                 </div>
               </li>
-              <li class="col-lg-3  m-b-30">
+              <li class="col-lg-3 m-b-30">
                 <h4 class="m-b-20">CONTACT US</h4>
                 <!-- Contact -->
                 <form>
@@ -507,7 +507,9 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="#"><i class="fa fa-power-off"></i> Logout</a>
+                <a (click)="_usuarioService.logout()" class="pointer"
+                  ><i class="fa fa-power-off"></i> Logout</a
+                >
               </li>
             </ul>
           </div>
