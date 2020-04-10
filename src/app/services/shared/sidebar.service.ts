@@ -9,26 +9,35 @@ export class SidebarService {
       submenu: [
         {
           titulo: "Dashboard",
-          url: "/dashboard"
+          url: "/dashboard",
         },
         {
           titulo: "ProgressBar",
-          url: "/progress"
+          url: "/progress",
         },
         {
           titulo: "Graficas",
-          url: "/graficas1"
+          url: "/graficas1",
         },
         {
           titulo: "Promesas",
-          url: "/promesas"
+          url: "/promesas",
         },
         {
           titulo: "Observables",
-          url: "/observables"
-        }
-      ]
-    }
+          url: "/observables",
+        },
+      ],
+    },
+    {
+      titulo: "Mantenimiento",
+      icono: "mdi mdi-folder-lock-open",
+      submenu: [
+        { titulo: "Usuarios", url: "/usuarios" },
+        { titulo: "Hospitales", url: "/hospitales" },
+        { titulo: "Medicos", url: "/medicos" },
+      ],
+    },
   ];
 
   constructor() {}

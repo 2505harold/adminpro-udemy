@@ -6,7 +6,7 @@ import { Title, Meta, MetaDefinition } from "@angular/platform-browser";
 @Component({
   selector: "app-breadcrumbs",
   templateUrl: "./breadcrumbs.component.html",
-  styles: []
+  styles: [],
 })
 export class BreadcrumbsComponent implements OnInit {
   titulo: string;
@@ -16,14 +16,13 @@ export class BreadcrumbsComponent implements OnInit {
     private title: Title,
     private meta: Meta
   ) {
-    this.getDataRoute().subscribe(data => {
-      console.log(data);
+    this.getDataRoute().subscribe((data) => {
       this.titulo = data.titulo;
       this.title.setTitle(this.titulo);
 
       const metaTag: MetaDefinition = {
         name: "description",
-        content: this.titulo
+        content: this.titulo,
       };
 
       this.meta.updateTag(metaTag);
@@ -35,7 +34,7 @@ export class BreadcrumbsComponent implements OnInit {
   getDataRoute() {
     return this.router.events.pipe(
       //definir todos mis operadores para extrear la infroamcion que nos interesa
-      filter(evento => evento instanceof ActivationEnd),
+      filter((evento) => evento instanceof ActivationEnd),
       filter((evento: ActivationEnd) => evento.snapshot.firstChild === null),
       map((evento: ActivationEnd) => evento.snapshot.data)
     );
