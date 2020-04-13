@@ -55,7 +55,13 @@ export class ModalUploadComponent implements OnInit {
         this.cerrarModal();
       })
       .catch((err) => {
-        console.log("error en la carga");
+        console.log(err);
+        this.cerrarModal();
+        Swal.fire({
+          icon: "error",
+          title: err.mensaje,
+          text: err.errors.message,
+        });
       });
   }
 

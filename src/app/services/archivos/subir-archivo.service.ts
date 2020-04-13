@@ -17,8 +17,7 @@ export class SubirArchivoService {
             resolve(JSON.parse(xhr.response));
           } else {
             //console.log("Fallo la subida");
-            console.log(xhr.status);
-            reject(xhr.response);
+            reject(JSON.parse(xhr.response));
           }
         }
       };
