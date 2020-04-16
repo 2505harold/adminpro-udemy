@@ -12,7 +12,7 @@ declare const gapi: any;
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
   recuerdame: boolean = false;
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         client_id:
           "421910354465-pcgukgl5hr2q5bj471mehldb8neu40k7.apps.googleusercontent.com",
         cookiepolicy: "single_host_origin",
-        scope: "profile email"
+        scope: "profile email",
       });
 
       this.attachSignin(document.getElementById("btn-google"));
@@ -43,10 +43,10 @@ export class LoginComponent implements OnInit {
   }
 
   attachSignin(element) {
-    this.auth2.attachClickHandler(element, {}, googleUser => {
+    this.auth2.attachClickHandler(element, {}, (googleUser) => {
       //const profile = googleUser.getBasicProfile();
       const token = googleUser.getAuthResponse().id_token;
-      this._usuarioService.loginGoogle(token).subscribe(resp => {
+      this._usuarioService.loginGoogle(token).subscribe((resp) => {
         if (resp) window.location.href = "#/dashboard";
       });
     });
@@ -57,18 +57,11 @@ export class LoginComponent implements OnInit {
       return;
     }
     const usuario = new Usuario(null, form.value.email, form.value.password);
-    this._usuarioService.login(usuario, form.value.recuerdame).subscribe(
-      resp => {
+    this._usuarioService
+      .login(usuario, form.value.recuerdame)
+      .subscribe((resp) => {
         this.router.navigate(["/dashboard"]);
-      },
-      err => {
-        Swal.fire({
-          icon: "error",
-          title: "Ocurrio un problema",
-          text: err.error.mensaje
-        });
-      }
-    );
+      });
     //this.router.navigate(["/dashboard"]);
   }
 }
